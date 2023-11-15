@@ -1,4 +1,4 @@
-# ZRXPATH Experiment 1: Accelerating Funding for 0x Improvement Proposals
+# ZRXPATH Experiment: Accelerating Funding for 0x Improvement Proposals
 ## Purpose
 ZRXPATH is a community-based initiative that aims to make the protocol more performant, innovative, and sustainable via the implementation of enabling structures and actionable pathways, providing a better experience for core protocol contributors. 
 
