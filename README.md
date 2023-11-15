@@ -44,7 +44,8 @@ This template is specific to ZRXPATH. It incorporates elements of the establishe
 ## Required Information
 The template represents the information that will be required to submit a ZEIP for an onchain vote. As the process of development is iterative by nature, some information may not be fully fleshed out early in the process. Nevertheless, the information provided should demonstrate a thoughtful design and development process, with progressively more mature data and descriptions if incremental funding is sought.
 
-[template link]
+> [!NOTE]
+> refer to [pZEIP procedure](./pZEIPs/README.md) for instructions on how to submit a pZEIP.›
 
 # Decision Process
 ## Purpose
