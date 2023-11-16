@@ -21,4 +21,4 @@
 ## Point of Contact
 > Indicate who will be mainly responsible for answering questions and provide their contact information.
 ## Funding Requested
-> Generally, funding is limited to $25k per request. However, larger amounts will be considered with the appropriate justification. Estimate the total amount of funding you expect to need to complete the work, i.e., a ZEIP ready for an onchain vote, and describe how the amount requested at this time will be used.
+> Generally, funding is limited to $25k per incremental request. However, larger amounts will be considered with the appropriate justification, such as to pay for an audit. Estimate the total amount of funding you expect to need to complete the work, i.e., a ZEIP ready for an onchain vote, and describe how the amount requested at this time will be used.
