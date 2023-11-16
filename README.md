@@ -1,4 +1,8 @@
 # ZRXPATH Experiment: Accelerating Funding for 0x Improvement Proposals
+
+> [!NOTE]
+> refer to [pZEIP procedure](./pZEIPs/README.md) for instructions on how to submit a pZEIP.›
+
 ## Purpose
 ZRXPATH is a community-based initiative that aims to make the protocol more performant, innovative, and sustainable via the implementation of enabling structures and actionable pathways, providing a better experience for core protocol contributors. 
 
@@ -43,9 +47,6 @@ This template is specific to ZRXPATH. It incorporates elements of the establishe
 
 ## Required Information
 The template represents the information that will be required to submit a ZEIP for an onchain vote. As the process of development is iterative by nature, some information may not be fully fleshed out early in the process. Nevertheless, the information provided should demonstrate a thoughtful design and development process, with progressively more mature data and descriptions if incremental funding is sought.
-
-> [!NOTE]
-> refer to [pZEIP procedure](./pZEIPs/README.md) for instructions on how to submit a pZEIP.›
 
 # Decision Process
 ## Purpose
