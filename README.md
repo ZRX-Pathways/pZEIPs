@@ -14,7 +14,7 @@ Core protocol contributors working on ZEIPs may need funding to resource their e
 This experiment is designed to produce learnings and improvements related to the following desired outcome. It incorporates a user story + hypothesis framing: 
 
 ### Desired Outcome
-How might we make it easier for developers to contribute to the core protocol contracts?
+> How might we make it easier for developers to contribute to the core protocol contracts?
 
 ### User Story 
 > As a [role], I want [goal/desire], so that [benefit]. 
