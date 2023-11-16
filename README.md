@@ -54,6 +54,6 @@ This process is specific to ZRXPATH. It is designed for core contributors workin
 1. Reduce the time between application submittal and funds disbursal
 
 ## Process Definition
-The process will include the same steps as the existing 0x Grant process, except that the governance forum post and snapshot vote will run concurrently for one week (7 days). If the snapshot vote passes, ZRXPATH will submit the proposal for an onchain vote. This reduces the timeline from 5-6 weeks to 2-3 weeks, depending on the onchain proposal delay (queue). 
+The process will include the same steps as the existing 0x Grant process, except that the governance forum post and snapshot vote will run concurrently for five days. If the snapshot vote passes, ZRXPATH will submit the proposal for an onchain vote. This reduces the timeline from 5-6 weeks to 2-3 weeks, depending on the onchain proposal delay (queue). 
 
 ![proposal lifecycle](./assets/proposal-lifesycle.png)
