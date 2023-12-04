@@ -104,10 +104,10 @@ Both methods are implemented in an example contract, and during the peer-review 
 Definitions: The `Client` is any user-facing application or tool. The `Server` is a remote application or service provider that aggregates liquidity like the 0x API.
 
 Example 1: a user wants to swap one NFT for another NFT.
-![nft-to-nft](./assets/2/nft-to-nft)
+![nft-to-nft](./assets/2/nft-to-nft.png)
 
 Example 2: a user wants to swap one NFT for another NFT, but the NFT orders are made with different tokens. A further ERC20 transformation is required under the hood.
-![nft-to-token-to-nft](./assets/2/nft-to-token-to-nft)
+![nft-to-token-to-nft](./assets/2/nft-to-token-to-nft.png)
 In the 0x protocol format, this is required when `sellOrder.erc20Token` is different from `buyOrder.erc20Token`
 
 Notice: the `Server` may return additional calldata. These transactions are to be added to the array of calldata. In case the `Server` returns `params` (including a method's selector), it is the task of the `Client` to encode `params` to `calldata`, a pretty standard process for sending batched transactions. In order for the displayed transactions to succeed, the value of NFT A shall equal at least the value of NFT B plus exchange, protocol, affiliate, or relayer fees.
