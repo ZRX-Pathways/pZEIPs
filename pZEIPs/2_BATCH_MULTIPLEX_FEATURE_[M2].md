@@ -1,11 +1,11 @@
 ## Summary
 This is an update on the current progress on pZEIP-2, which is described [here](https://github.com/ZRX-Pathways/pZEIPs/pull/2/files).
-The goal is to provide sufficient information about the progress made so far, the results obtained, and the learnings, while at the same time gathering community feedback in order to move pZEIP-2 to a formal ZEIP and its subsequent addition as a new protocol extension.
+The goal is to provide sufficient information about the progress made so far, the results obtained, and the learnings, while at the same time gathering community feedback in order to move pZEIP-2 to a formal ZEIP and its subsequent addition as a new protocol feature.
 This document also serves to inform future contributors so they can grasp a clearer understanding of the idiosyncrasies of the 0x Exchange Proxy (EP), in particular with regards to native ETH transactions and arbitrary calldata inputs.
 
 ## Updates on specifications
 The starting point of pZEIP-2 is to provide the 0x Exchange Proxy with a method to execute multiple swap transactions in a single call without imposing new transaction types. This way, the individual single-swap calls can be combined into an array of calls with the same format. The encoded array is then attached as `calldata` to the `batchMultiplex` call.
-Another base rule of the implementation is to avoid incorporating swap logic in the new extension, therefore minimizing the risk of creating new attack vectors.
+Another base rule of the implementation is to avoid incorporating swap logic in the new feature, therefore minimizing the risk of creating new attack vectors.
 Slight modifications have been applied to the original specifications:
   - *enum* type `ErrorHandling` has been renamed `ErrorBehavior` for coherence with [pZEIP-1](https://github.com/ZRX-Pathways/pZEIPs/pull/1/files);
   - *enum* type `ErrorBehavior` has been implemented as a library in *src/features/libs/LibTypes.sol*.
@@ -48,7 +48,7 @@ A simpler solution would be to modify the interface of the ETH-related methods w
 When native ETH is involved, it is not always possible to correctly forward the individual calls to the 0x Exchange Proxy. Our "simple" implementation, in fact, relies on using the low-level `delegatecall` call, which preserves `msg.sender` and `msg.value`. In the 0x Exchange V4, this means that ETH-related methods may or will revert in the event that multiple calls try to use native ETH.
 
 As some methods require custom routing, we have to keep information about the individual methods in storage. In order to do this, we define three possible states for a selector: `Whitelisted`, `Blacklisted`, and `RequiresRouting`. We define this in *src/storage/LibBatchMultiplexStorage.sol* as a mapping of status by selector. The mapping is updated by calling `updateSelectorsStatus(UpdateSelectorStatus[] memory selectorsTuple)`, which is restricted to the 0x Exchange Proxy owner. When a non-whitelisted (i.e., either `Blacklisted` or `RequiresRouting`) method's state is updated, its selector is removed from the mapping, so that all methods but the ones that are either explicitly blacklisted or require special handling are whitelisted. This flow is efficient as it avoids having to whitelist all implemented methods, thus not requiring an update when new features are added to the proxy. The external method `getSelectorStatus` allows to investigate the status of a selector. Routing follows the same principles as the *MultiplexFeature* and uses some of its code with necessary modifications.
-At the point of extension registration to the 0x Exchange Proxy, a few methods are registered as follows:
+At the point of feature registration to the 0x Exchange Proxy, a few methods are registered as follows:
 1. Blacklisted methods:
     - Meta transactions are not supported by default, MetaTransactionsV2 could be supported without need for routing:
       - `executeMetaTransactionV2`;
@@ -80,7 +80,7 @@ At the point of extension registration to the 0x Exchange Proxy, a few methods a
 Batch methods are blacklisted as they can be executed as an array of individual calls.
 Some methods are explicitly restricted but could be supported. *MetaTransactionsFeatureV2* methods, for example, are non-payable and could be supported without the need for routing. However, meta transactions in general are blacklisted, as a batch of swaps can be executed by passing them as an array or `calldata` arguments to a single meta transaction.
 
-We now dig deeper into why the remaining methods are blacklisted or routed through a custom path.
+We now dig deeper into why the remaining methods are blacklisted or routed through a custom path. We define routing as routing within the proxy, not with external contracts (as would be with external liquidity sources through APIs). Therefore, we mean routing a call to its EP implementation in the correct way.
 **Notice:** Some of the blacklisted methods can alternatively be executed "synthetically" by using a method that uses a custom route. This way, we can minimize the number of registered methods and develop a dedicated route only after it appears justified by the demand for that specific method.
 
 - Blacklisted methods
@@ -139,14 +139,14 @@ Some methods are flagged as blacklisted but could be implemented with a custom r
 
 **Notice:** after the swaps are executed, but before the end of the transaction, we unwrap any WETH leftover and forward it to the `msg.sender`. As in our implementation no WETH is left in the 0x Exchange Proxy at the end of execution, this method is theoretically unnecessary and works as a safeguard measure that could be removed after further test assertions.
 
-### Specificities of developing a multicall extension for the 0x Exchange Proxy
+### Specificities of developing a multicall feature for the 0x Exchange Proxy
 When forwarding an array of calls to the 0x Exchange Proxy, a developer must be aware that:
 - `delegatecall` is a safe method to use, but will revert in some specific circumstances as the original call's `msg.value` is preserved;
 - some publicly exposed internal methods have been developed that allow custom routing of calls that require handling. These methods allow forwarding the desired ETH;
 - using `call` to forward a batch of swaps is generally unsafe, as:
   - the `msg.sender` is changed to the 0x Exchange Proxy itself, and therefore some external methods will be incorrectly executed;
   - when calling the publicly exposed internal methods, some parameters will be passed to the child, which would make the 0x Exchange Proxy insecure. In particular, in some cases, a `taker` can be passed, which is different from the `msg.sender`; in others, a `payer` can be passed, which is different from the `msg.sender`.
-  While the first does not pose a security thread but "violates" the rule of the 0x protocol, the second poses a security thread as anyone would be able to move another user's funds (provided the user has an approval set to the 0x Exchange Proxy). Furthermore, the ABI of the publicly exposed internal methods is different from the ABI of the external methods that use them, thus requiring an amendment in the format at an API-provider level;
+  While the first does not pose a security threat but "violates" the rule of the 0x protocol, the second poses a security threat as anyone would be able to move another user's funds (provided the user has an approval set to the 0x Exchange Proxy). Furthermore, the ABI of the publicly exposed internal methods is different from the ABI of the external methods that use them, thus requiring an amendment in the format at an API-provider level;
 - a method cannot pass arbitrary data with `call` to self. Instead, inputs **MUST** be decoded according to the expected type and correctly routed with parameters validation;
 - generally speaking, it is good practice to:
   - decode the encoded data according to their selector (the first four bytes of the `calldata`);
