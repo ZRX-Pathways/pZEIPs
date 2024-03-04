@@ -5,7 +5,7 @@
 3. Submit a Pull Request containing the new file
 
 
-## Naming comvention
+## Naming convention
 
 A new proposal file should follow the following naming convention:
 
