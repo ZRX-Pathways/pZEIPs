@@ -12,7 +12,7 @@ in a single transaction, the BSF will streamline the process for on-chain mutual
 the significant role of index funds in traditional finance within the DeFi space. This feature is restricted to ERC20
 tokens and does not support NFT orders.
 
-To understand the whole context refer to [pZEIP: Bundle Swap Feature (BSF) - M1](./1_BUNDLE_SWAP_FEATURE_M1.md) which is
+To understand the whole context refer to [pZEIP: Bundle Swap Feature (BSF) - M1](./MILESTONE_1.md) which is
 the original proposal for milestone 1 of this pZEIP.
 
 ## Report of Milestone 1
@@ -30,7 +30,7 @@ We have been in communication with SHA during the development process and we ran
 
 From a high-level the implementation looks as shown in the following graphic:
 
-![high-level-impl](./assets/1/4_high-level-impl_m1.png)
+![high-level-impl](./assets/4_high-level-impl_m1.png)
 
 **The developed code can be seen in the GitHub
 diff:** https://github.com/0xProject/protocol/compare/development...Phips0812:0x-protocol:m1
@@ -49,16 +49,16 @@ ERC20 tokens could be implemented to optimize gas efficiency.
 #### Arbitrary internal calls to proxy
 
 During discussions from [SHA-2048](https://github.com/SHA-2048) and [gabririgo](https://github.com/gabririgo), related
-to [pZEIP-2](./2_BATCH_MULTIPLEX_FEATURE.md) (developed by gabririgo), it was figured out that internal arbitrary
+to [pZEIP-2](../2_BATCH_MULTIPLEX_FEATURE) (developed by gabririgo), it was figured out that internal arbitrary
 calls back to the proxy can lead to harmful interactions since some internal functions are registered on the proxy and
 could therefore be called by attackers to steal approved user funds.
 
 More technical details on both topics can be found
-in [pZEIP-1 - M2: Technical Details](./1_BUNDLE_SWAP_FEATURE_M2_TECHNICAL_DETAILS.md).
+in [pZEIP-1 - M2: Technical Details](./studies/MILESTONE_2_TECHNICAL_DETAILS.md).
 
 ## Milestone Roadmap Adaption
 
-The initial milestone roadmap can be seen in [pZEIP: Bundle Swap Feature (BSF) - M1](./1_BUNDLE_SWAP_FEATURE_M1.md).
+The initial milestone roadmap can be seen in [pZEIP: Bundle Swap Feature (BSF) - M1](./MILESTONE_1.md).
 We’ve been able to finish more work than expected in Milestone 1. Due to the findings described in the section “Report
 of M1” above there is some additional effort required. So the overall project effort estimation stays as planned in the
 initial proposal:

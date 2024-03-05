@@ -22,8 +22,8 @@ public company stocks. DeFi is poised for a similar trend, yet current DEX solut
 complex transactions required for portfolio rebalancing. Our analysis of Ethereum DEX trading history reveals that 13% 
 of transactions could benefit from a bundling feature, indicating a clear market need for this protocol enhancement.
 
-![dune-1](./assets/1/1_dune-1.png)
-![dune-2](./assets/1/2_dune-2.png)
+![dune-1](./assets/1_dune-1.png)
+![dune-2](./assets/2_dune-2.png)
 
 ## Specification
 
@@ -40,7 +40,7 @@ other existing features:
  - UniswapV3Feature
  - PancakeSwapFeature
 
-![architecture](./assets/1/3_architecture.png)
+![architecture](./assets/3_architecture.png)
 
 The redirection of the separate trades can be done similarly as in MetaTransactionFeatureV2 where a call is executed 
 based on the selector. The feature smart contract enables end users to leverage the multi-asset swap functionality from 

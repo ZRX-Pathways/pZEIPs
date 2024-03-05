@@ -14,3 +14,6 @@ A new proposal file should follow the following naming convention:
 where:
 - `<number>` is the next available number for a pZEIP.
 - `<title>` is a short underscore uppercase separated description of the proposal.
+
+in case several documents are required, create a folder respecting the same naming convention and place the documents inside it.
+diagrams or images can be gathered in a `assets` subfolder.
