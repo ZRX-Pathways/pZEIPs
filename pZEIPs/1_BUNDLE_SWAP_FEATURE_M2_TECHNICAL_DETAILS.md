@@ -1,7 +1,7 @@
 # pZEIP-1 - M2: Technical Details
 
-Technical details on the 2 topics mentioned in “Report of Milestone 1” section
-of <LINK TO M1 REPORT> [Technical Issues](./1_BUNDLE_SWAP_FEATURE_M2.md#funding-request).
+Technical details on the 2 topics mentioned in [Technical Issues](./1_BUNDLE_SWAP_FEATURE_M2.md#technical-issues) of 
+[pZEIP-1: Bundle Swap Feature (BSF) - M2](./1_BUNDLE_SWAP_FEATURE_M2.md).
 
 ## Issue 1: ERC20 vs native currency
 
@@ -51,7 +51,8 @@ calldata.
 
 ### Topic
 
-During discussions from SHA and Gab, related to pZEIP-2 (developed by Gab), it was figured out that internal arbitrary
+During discussions from [SHA-2048](https://github.com/SHA-2048) and [gabririgo](https://github.com/gabririgo), related
+to [pZEIP-2](./2_BATCH_MULTIPLEX_FEATURE.md) (developed by gabririgo), it was figured out that internal arbitrary
 calls back to the proxy can lead to harmful interactions since some internal functions are registered on the proxy and
 could therefore be called by attackers to steal approved user funds.
 
