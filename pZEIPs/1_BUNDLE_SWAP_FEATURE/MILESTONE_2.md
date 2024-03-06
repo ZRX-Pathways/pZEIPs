@@ -54,7 +54,7 @@ calls back to the proxy can lead to harmful interactions since some internal fun
 could therefore be called by attackers to steal approved user funds.
 
 More technical details on both topics can be found
-in [pZEIP-1 - M2: Technical Details](./studies/MILESTONE_2_TECHNICAL_DETAILS.md).
+in [pZEIP-1 - M2: Technical Details](./research/MILESTONE_2_TECHNICAL_DETAILS.md).
 
 ## Milestone Roadmap Adaption
 
