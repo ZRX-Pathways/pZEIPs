@@ -1,4 +1,4 @@
-# ZRX Pathways Experiment: Accelerating Funding for 0x Improvement Proposals
+# ZRX Pathways Experiment 1 (E-1): Accelerating Funding for 0x Improvement Proposals
 
 > [!NOTE]
 > refer to [pZEIP procedure](./pZEIPs/README.md) for instructions on how to submit a pZEIP.›
