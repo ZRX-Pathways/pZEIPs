@@ -72,6 +72,8 @@ In combination, these three components enable optimistic approval and execution 
 ### Process
 Similar to E-1, the forum discussion and Snapshot vote will run concurrently, but the duration will be extended to 14 days to reflect that the onchain vote and associated queue/delay is eliminated. 
 
+![E2 process flow](./assets/e2%20process%20flow.png)
+
 ### Voting
 Voting will take place in Snapshot. A dedicated subspace connected to the main space will be implemented for pZEIP funding votes. Voting will use the same ZRX voting power strategy used for all 0x Snapshot votes, but will use the optimistic quorum strategy to determine the vote outcome. The quorum will be set to 7M ZRX. 
 
