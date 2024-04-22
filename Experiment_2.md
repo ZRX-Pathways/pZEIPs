@@ -43,8 +43,9 @@ The current quorum requirement for treasury votes, combined with voter behavior,
 Similar to E-1, E-2 is designed to produce learnings and improvements related to the following desired outcome. It incorporates a user story + hypothesis framing:
 
 ### Desired Outcome
-> How might we make it easier for developers to contribute to the core protocol contracts?
-User Story
+How might we make it easier for developers to contribute to the core protocol contracts?
+
+### User Story
 > As a [role], I want [goal/desire], so that [benefit].
 
 As a developer, I want to minimize the time and effort associated with grant processes, so that I can focus on the functional job to be done.
@@ -58,12 +59,15 @@ We believe that implementing optimistic funding for protocol contributor grants 
 This experiment is designed for protocol contributors who are seeking funding from the treasury and has two goals:
 
 > Reduce the friction associated with funding for pZEIP contributors
+
 > Increase the predictability, reliability, and consistency that qualified contributors will receive grants
 
 This experiment has three components:
 
 > **Process**: 2-week cycle with concurrent forum discussion and Snapshot voting
+
 > **Voting**: Snapshot subspace with ZRX voting power strategy and optimistic quorum
+
 > **Execution/Disbursement**: Tellor Zodiac Module (oracle) and Gnosis Safe
 
 In combination, these three components enable optimistic approval and execution of protocol contributor grants, providing that certain criteria are met (see Considerations, below). 
