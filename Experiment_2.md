@@ -79,7 +79,7 @@ Voting will take place in Snapshot. A dedicated subspace connected to the main s
 
 Specifically, the outcome will be determined as follows:
 
-1. If the votes AGAINST votes do not exceed the quorum (7M ZRX), the vote will pass. 
+1. If the votes AGAINST do not equal or exceed the quorum (7M ZRX), the vote will pass. 
 2. If the votes AGAINST equal or exceed the quorum (7M ZRX), the vote will fail.
 
 ### Execution/Disbursement
